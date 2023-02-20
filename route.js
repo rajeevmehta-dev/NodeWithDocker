@@ -5,7 +5,7 @@ router.get('/api', (req, res, next) => {
         {
             id: 101,
             name: 'Shaktiman',
-            designation: 'Software Engineer'
+            designation: 'Software Engineer Shaktimaan'
         },
         {
             id: 102,
