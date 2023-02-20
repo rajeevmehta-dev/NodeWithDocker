@@ -4,7 +4,7 @@ router.get('/api', (req, res, next) => {
     const userData = [
         {
             id: 101,
-            name: 'Rajeev',
+            name: 'Shaktiman',
             designation: 'Software Engineer'
         },
         {
