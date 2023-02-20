@@ -1,20 +1,21 @@
 pipeline {
-    agent { docker { image 'node' } }
+    agent any
     stages {
         stage('Clean up') {
             steps {
                deleteDir()            }
         }
-        stage('Clone Repo') {
+        stage('Get Data') {
             steps {
-                sh "git clone https://github.com/rajeevmehta-dev/NodeWithDocker.git"
-            }
+               sh "git clone https://github.com/rajeevmehta-dev/NodeWithDocker.git"            }
         }
         stage('build') {
             steps {
-                dir('NodeWithDocker') {
-                       sh 'node --version'
-                }
+                 sh '''#!/bin/bash
+                  cd NodeWithDocker
+                  docker-compose down
+                  docker-compose up -d --build
+                '''        
             }
         }
     }
