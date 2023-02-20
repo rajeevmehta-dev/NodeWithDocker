@@ -1,11 +1,20 @@
-Jenkinsfile (Declarative Pipeline)
-/* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'node:16.17.1-alpine' } }
+    agent { docker { image 'node' } }
     stages {
+        stage('Clean up') {
+            steps {
+               deleteDir()            }
+        }
+        stage('Clone Repo') {
+            steps {
+                sh "git clone https://github.com/rajeevmehta-dev/NodeWithDocker.git"
+            }
+        }
         stage('build') {
             steps {
-                sh 'docker build -d -t rajeev/node-docker .'
+                dir('NodeWithDocker') {
+                       sh 'node --version'
+                }
             }
         }
     }
