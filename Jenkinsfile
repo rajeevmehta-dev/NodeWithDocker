@@ -5,10 +5,6 @@ pipeline {
             steps {
                deleteDir()            }
         }
-        stage('Get Data') {
-            steps {
-               sh "git clone https://github.com/rajeevmehta-dev/NodeWithDocker.git"            }
-        }
         stage('build') {
             steps {
                  sh '''#!/bin/bash
